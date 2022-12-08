@@ -1,0 +1,322 @@
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. -->
+<!-- This file shows how to design a first-run page that provides a welcome screen to the user about the features of the add-in. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>excelformulabot</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+
+    <!-- For more information on Fluent UI, visit https://developer.microsoft.com/fluentui#/. -->
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css" />
+
+    <!-- Template styles -->
+    <link href="taskpane.css" rel="stylesheet" type="text/css" />
+</head>
+
+<!-- <body class="ms-font-m ms-welcome ms-Fabric"> -->
+<body class="bg-[#F7F7F7]">
+    <div id="loginScr">
+        <div class="flex justify-between items-center mr-4">
+            <!-- <h3 class="font-bold mt-2 ml-2">excel<span class="text-green-400 italic">f</span>ormulabot</h3> -->
+            <img src="https://dd7tel2830j4w.cloudfront.net/f1661484936031x142488042951899980/excelformulabot%20%28500%20%C3%97%20100%20px%29%20%282%29.svg" width="180px" class="ml-2" />
+        </div>
+        <label class="mt-3 ml-4">Email:</label>
+        <div class="mt-1" style="text-align: -webkit-center">
+            <input placeholder="Email" id="email" class="form-control w-[90%]" />
+        </div>
+        <label class="mt-3 ml-4">Password:</label>
+        <div class="mt-1" style="text-align: -webkit-center">
+            <input type="password" placeholder="Password" id="password" class="form-control w-[90%]" />
+        </div>
+        <div class="mt-3" style="text-align: -webkit-center">
+            <button class="btn btn-secondary bg-[#0C4D78] hover:bg-[#063c61] active:bg-[#063c61] focus:bg-[#063c61] w-[90%]" id="login">Login</button>
+        </div>
+
+        <div class="mt-5 p-1" style="text-align:center;">
+            <a href="https://excelformulabot.com/">Want to subscribe to use?</a>
+        </div>
+        <div class="mt-3 p-1" style="text-align:center">
+            <a href="https://excelformulabot.com/frequently-asked-questions-faq">Have any questions?</a>
+        </div>
+    </div>
+    <div id="mainScr" class="hidden">
+        <div class="flex justify-between items-center mr-4">
+            <!-- <h3 class="font-bold mt-2 ml-2">excel<span class="text-green-400 italic">f</span>ormulabot</h3> -->
+            <img src="https://dd7tel2830j4w.cloudfront.net/f1661484936031x142488042951899980/excelformulabot%20%28500%20%C3%97%20100%20px%29%20%282%29.svg" width="180px" class="ml-2" />
+            <i class="fa-sharp fa-solid fa-power-off cursor-pointer" onclick="logout()" title="logout"></i>
+        </div>
+        <div class="!mt-3" style="text-align: -webkit-center">
+            <select class="form-select w-[90%]" id="selectField">
+                <option value="1">Generate Formula</option>
+                <option value="2">Explain Formula</option>
+            </select>
+        </div>
+        <div class="mt-2" style="text-align: -webkit-center">
+            <textarea class="form-control w-[90%] resize-none" id="input" rows="5" placeholder="Input Your Question/Formula"></textarea>
+        </div>
+        <div class="mt-2" style="text-align: -webkit-center">
+            <button class="btn btn-success w-[90%]" id="submit">Submit</button>
+        </div>
+        <div class="mt-2" style="text-align: -webkit-center">
+            <textarea class="form-control w-[90%] resize-none" id="output" rows="5" placeholder="Output" disabled></textarea>
+        </div>
+        <div class="mt-2" style="text-align: -webkit-center">
+            <button class="btn btn-secondary bg-[#0C4D78] hover:bg-[#063c61] active:bg-[#063c61] focus:bg-[#063c61] w-[90%]" id="copy">Copy</button>
+        </div>
+        <div class="mt-2" style="text-align: -webkit-center">
+            <button class="btn btn-secondary w-[90%]" id="insert">Insert in Current Cell</button>
+        </div>
+        <!--<div class="mt-3 text-red-500 text-center mb-4 ml-5 mr-5">-->
+        <!--<p>
+          If you are a subscriber and it shows "Inactive Subscription," click the icon in top right to log in to resolve issue.
+        </p>-->
+        <!--</div>-->
+    </div>
+    <div id="loadScr" class="bg-gray-300 fixed top-0 left-0 w-full h-full">
+        <div class="loadHolder mt-[12rem] ml-[5.5rem]">
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <script>
+
+
+        Office.onReady((info) => {
+            if (info.host === Office.HostType.Excel) {
+                document.getElementById('insert').addEventListener('click', writeToSheet)
+            }
+        })
+
+        function writeToSheet() {
+            try {
+                Excel.run(function (context) {
+                    let range = context.workbook.getSelectedRange();
+                    range.load("address");
+                    return context.sync().then(function () {
+                        range.values = [[document.getElementById('output').value]]
+                        return context.sync()
+                    });
+
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+
+
+        var loginScr = document.querySelector('#loginScr');
+        var mainScr = document.querySelector('#mainScr');
+        var loadScr = document.querySelector('#loadScr');
+
+        var login = document.querySelector('#login');
+        var submit = document.querySelector('#submit');
+        var copy = document.querySelector('#copy');
+        var insert = document.querySelector('#insert');
+
+        login.addEventListener('click', loginFunc);
+        submit.addEventListener('click', submitFunc);
+        copy.addEventListener('click', copyFunc);
+        document.addEventListener('DOMContentLoaded', firstResponse);
+
+        function firstResponse() {
+
+            activeState = localStorage.getItem('token');
+            if (!activeState) {
+                loginScr.style.display = 'block';
+                mainScr.style.display = 'none';
+                loadScr.style.display = 'none';
+                return;
+            } else {
+                loginScr.style.display = 'none';
+                mainScr.style.display = 'block';
+                loadScr.style.display = 'none';
+            }
+        }
+
+        async function loginFunc() {
+
+            var email = document.querySelector('#email').value;
+            var password = document.querySelector('#password').value;
+            if (email == '' || password == '') {
+                updateBtn('#login', 'Fill Input Field!', 'Login')
+                return
+            }
+            login.innerText = 'Logging In...'
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            var raw = JSON.stringify({
+                "email": email,
+                "password": password
+            });
+
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+
+            var response = await fetch("https://excelformulabot.com/api/1.1/wf/login/", requestOptions)
+                .then(response => response.text())
+                .then(result => {
+                    console.log(result)
+
+                    var resp = JSON.parse(result)
+                    //console.log(resp.reason)
+                    if (resp.status == 'success') {
+                        localStorage.setItem("token", resp.response.token)
+                        loginHandle(resp)
+                    }
+
+                    if (resp.reason === 'INVALID_LOGIN_CREDENTIALS') {
+                        //login.innerText = 'Invalid Email/Password';
+
+                        updateBtn('#login', 'Invalid Email/Password', 'Login')
+                        return
+                    }
+
+
+
+
+                })
+
+        }
+        function loginHandle(res) {
+            if (res.status == 'success') {
+                if (res.response.subscription == true) {
+                    login.innerText = 'Login';
+                    document.querySelector('#email').value = '';
+                    document.querySelector('#password').value = '';
+                    loginScr.style.display = 'none';
+                    mainScr.style.display = 'block';
+                    loadScr.style.display = 'none';
+                } else {
+                    loginScr.style.display = 'block';
+                    mainScr.style.display = 'none';
+                    loadScr.style.display = 'none';
+                    updateBtn('#login', 'Inactive Subscription', 'Login');
+                }
+            } else {
+                updateBtn('#login', res.message, 'Login');
+            }
+        }
+
+        function logout() {
+            console.log('logout');
+            logoutHandle()
+        }
+
+        function logoutHandle() {
+            localStorage.removeItem('token')
+            loginScr.style.display = 'block';
+            mainScr.style.display = 'none';
+            loadScr.style.display = 'none';
+            document.querySelector('#input').value = '';
+            document.querySelector('#output').value = '';
+        }
+
+        async function submitFunc() {
+            var input = document.querySelector('#input');
+            if (input.value == '') {
+                updateBtn('#submit', 'Fill Input Field!', 'Submit');
+                return;
+            }
+            var select = document.querySelector('#selectField');
+            submit.innerText = 'Processing...';
+            if (select.value == "1") {
+                var type = 'Formula'
+            } else {
+                var type = 'Explain'
+            }
+            var str = input.value
+            var Token = localStorage.getItem("token")
+            var response = await fetch('https://excelformulabot.com/api/1.1/wf/output/', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${Token}`,
+                    "Content-Type": 'application/json'
+                },
+                body: JSON.stringify({
+                    "input": str,
+                    "platform": "Excel",
+                    "outputType": type
+                }),
+                redirect: 'follow',
+            }).then(response => response.text())
+                .then(result => {
+                    var resp = JSON.parse(result)
+                    if (resp.status == 'success') {
+                        document.getElementById("output").value = resp.response.output
+                        submit.innerText = "Submit"
+                        return response.getContentText();
+
+                    }
+                })
+
+        }
+
+        // function OutputResult (e) {
+        //   if(e == 'inactive'){
+        //     updateBtn('#submit','Inactive Subscription','Submit');
+        //     return;
+        //   }
+        //   var outputVal = '';
+        //   try{
+        //    var resp = JSON.parse(e);
+
+        //       if(resp?.status == 'success'){
+        //         if(resp?.response?.output){
+        //           outputVal = resp?.response?.output;
+        //         } else {
+        //           console.log('there is no output')
+        //         }
+        //       } else {
+        //         console.log('response is not successful');
+        //       }
+        //   } catch (err) {
+        //     console.log(err);
+        //   }
+        //   submit.innerText = 'Submit';
+        //   var output = document.querySelector('#output');
+        //   output.value = outputVal;
+        //   var input = document.querySelector('#input');
+        //   var select = document.querySelector('#selectField');
+        // }
+
+        // function BubbleResponse (e) {
+        //   console.log(e);
+        // }
+
+        function copyFunc() {
+            var output = document.querySelector('#output');
+            navigator.clipboard.writeText(output.value);
+            updateBtn('#copy', 'Copied!', 'Copy');
+        }
+
+
+        function updateBtn(selector, msg, org) {
+            var elem = document.querySelector(selector);
+            elem.innerText = msg;
+            setTimeout(() => { elem.innerText = org }, 1500);
+        }
+    </script>
+</body>
+</html>

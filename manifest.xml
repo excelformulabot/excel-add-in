@@ -9,7 +9,7 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="AI Formula Generator Bot for Excel"/>
   <Description DefaultValue="AI Formula Generator Bot for Excel"/>
-  <IconUrl DefaultValue="https://excelformulabot.github.io/excel-add-in/logo_16.png"/>
+  <IconUrl DefaultValue="https://excelformulabot.github.io/excel-add-in/logo_32.png"/>
   <HighResolutionIconUrl DefaultValue="https://excelformulabot.github.io/excel-add-in/logo_64.png"/>
   <SupportUrl DefaultValue="https://excelformulabot.com/frequently-asked-questions-faq"/>
   <AppDomains>

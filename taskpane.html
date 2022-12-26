@@ -11,31 +11,35 @@
     <title>excelformulabot</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
 
     <!-- Office JavaScript API -->
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
 
     <!-- For more information on Fluent UI, visit https://developer.microsoft.com/fluentui#/. -->
-    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css" />
+    <link rel="stylesheet"
+        href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css" />
 
     <!-- Template styles -->
     <link href="taskpane.css" rel="stylesheet" type="text/css" />
 </head>
 
 <!-- <body class="ms-font-m ms-welcome ms-Fabric"> -->
+
 <body class="bg-[#F7F7F7]">
     <div id="loginScr">
         <div class="flex justify-between items-center mr-4">
             <!-- <h3 class="font-bold mt-2 ml-2">excel<span class="text-green-400 italic">f</span>ormulabot</h3> -->
-            <img src="https://dd7tel2830j4w.cloudfront.net/f1661484936031x142488042951899980/excelformulabot%20%28500%20%C3%97%20100%20px%29%20%282%29.svg" width="180px" class="ml-2" />
+            <img src="https://dd7tel2830j4w.cloudfront.net/f1661484936031x142488042951899980/excelformulabot%20%28500%20%C3%97%20100%20px%29%20%282%29.svg"
+                width="180px" class="ml-2" />
         </div>
         <label class="mt-3 ml-4">Email:</label>
         <div class="mt-1" style="text-align: -webkit-center">
@@ -46,21 +50,29 @@
             <input type="password" placeholder="Password" id="password" class="form-control w-[90%]" />
         </div>
         <div class="mt-3" style="text-align: -webkit-center">
-            <button class="btn btn-secondary bg-[#0C4D78] hover:bg-[#063c61] active:bg-[#063c61] focus:bg-[#063c61] w-[90%]" id="login">Login</button>
+            <button
+                class="btn btn-secondary bg-[#0C4D78] hover:bg-[#063c61] active:bg-[#063c61] focus:bg-[#063c61] w-[90%]"
+                id="login">Login</button>
         </div>
-
-        <div class="mt-5 p-1" style="text-align:center;">
+        <div id="LoginErrorMessage" class="mt-3 p-1" style="text-align:center;display: none;">
+            <p style="color:red;">Request failed, try again. If issue persists, contact hello@excelformulabot.com</p>
+        </div>
+        <div class="mt-3 p-1" style="text-align:center;">
             <a href="https://excelformulabot.com/">Want to subscribe to use?</a>
         </div>
-        <div class="mt-3 p-1" style="text-align:center">
+        <div class="mt-1 p-1" style="text-align:center">
             <a href="https://excelformulabot.com/frequently-asked-questions-faq">Have any questions?</a>
+        </div>
+        <div class="mt-1 p-1" style="text-align:center">
+            <a href="mailto:hello@excelformulabot.com">Experiencing issues? Contact hello@excelformulabot.com</a>
         </div>
     </div>
     <div id="mainScr" class="hidden">
         <div class="flex justify-between items-center mr-4">
             <!-- <h3 class="font-bold mt-2 ml-2">excel<span class="text-green-400 italic">f</span>ormulabot</h3> -->
-            <img src="https://dd7tel2830j4w.cloudfront.net/f1661484936031x142488042951899980/excelformulabot%20%28500%20%C3%97%20100%20px%29%20%282%29.svg" width="180px" class="ml-2" />
-            <i class="fa-sharp fa-solid fa-power-off cursor-pointer" onclick="logout()" title="logout"></i>
+            <img src="https://dd7tel2830j4w.cloudfront.net/f1661484936031x142488042951899980/excelformulabot%20%28500%20%C3%97%20100%20px%29%20%282%29.svg"
+                width="180px" class="ml-2" />
+            <!-- <i class="fa-sharp fa-solid fa-power-off cursor-pointer" onclick="logout()" title="logout"></i> -->
         </div>
         <div class="!mt-3" style="text-align: -webkit-center">
             <select class="form-select w-[90%]" id="selectField">
@@ -69,19 +81,32 @@
             </select>
         </div>
         <div class="mt-2" style="text-align: -webkit-center">
-            <textarea class="form-control w-[90%] resize-none" id="input" rows="5" placeholder="Input Your Question/Formula"></textarea>
+            <textarea class="form-control w-[90%] resize-none" id="input" rows="5"
+                placeholder="Input Your Question/Formula"></textarea>
         </div>
         <div class="mt-2" style="text-align: -webkit-center">
             <button class="btn btn-success w-[90%]" id="submit">Submit</button>
         </div>
         <div class="mt-2" style="text-align: -webkit-center">
-            <textarea class="form-control w-[90%] resize-none" id="output" rows="5" placeholder="Output" disabled></textarea>
+            <textarea class="form-control w-[90%] resize-none" id="output" rows="5" placeholder="Output"
+                disabled></textarea>
         </div>
         <div class="mt-2" style="text-align: -webkit-center">
-            <button class="btn btn-secondary bg-[#0C4D78] hover:bg-[#063c61] active:bg-[#063c61] focus:bg-[#063c61] w-[90%]" id="copy">Copy</button>
+            <button
+                class="btn btn-secondary bg-[#0C4D78] hover:bg-[#063c61] active:bg-[#063c61] focus:bg-[#063c61] w-[90%]"
+                id="copy">Copy</button>
         </div>
         <div class="mt-2" style="text-align: -webkit-center">
             <button class="btn btn-secondary w-[90%]" id="insert">Insert in Current Cell</button>
+        </div>
+        <div class="mt-2" style="text-align: -webkit-center">
+            <!-- <button onclick="logout()" class="btn btn-danger w-[90%]">Logout</button> -->
+            <span onclick="logout()" id="LogoutBtn">Logout</span>
+        </div>
+
+        <div class="mt-2" style="text-align: -webkit-center">
+            <!-- <p>For technical issues, contact <a href="mailto:hello@excelformulabot.com">hello@excelformulabot.com</a></p> -->
+            <p>For technical issues, contact hello@excelformulabot.com</p>
         </div>
         <!--<div class="mt-3 text-red-500 text-center mb-4 ml-5 mr-5">-->
         <!--<p>
@@ -111,7 +136,8 @@
                     range.load("address");
                     return context.sync().then(function () {
                         range.values = [[document.getElementById('output').value]]
-                        return context.sync()
+                        return context.sync();
+
                     });
 
                 });
@@ -177,28 +203,35 @@
             var response = await fetch("https://excelformulabot.com/api/1.1/wf/login/", requestOptions)
                 .then(response => response.text())
                 .then(result => {
-                    console.log(result)
-
+                    // console.log(result)
                     var resp = JSON.parse(result)
                     //console.log(resp.reason)
                     if (resp.status == 'success') {
                         localStorage.setItem("token", resp.response.token)
                         loginHandle(resp)
                     }
-
                     if (resp.reason === 'INVALID_LOGIN_CREDENTIALS') {
-                        //login.innerText = 'Invalid Email/Password';
-
                         updateBtn('#login', 'Invalid Email/Password', 'Login')
                         return
                     }
 
+                }).catch((error) => {
+                    console.log(error);
+                    login.innerText = 'Login'
+                    delayedMessage();
+                });
+        };
 
-
-
-                })
-
+        function setOutput() {
+            document.getElementById('LoginErrorMessage').style.display = "none";
         }
+        let timeoutID;
+        function delayedMessage() {
+            document.getElementById("LoginErrorMessage").style.display = "block";
+            timeoutID = setTimeout(setOutput, 4 * 1000);
+        }
+
+
         function loginHandle(res) {
             if (res.status == 'success') {
                 if (res.response.subscription == true) {
@@ -218,6 +251,9 @@
                 updateBtn('#login', res.message, 'Login');
             }
         }
+
+        
+
 
         function logout() {
             console.log('logout');
@@ -246,8 +282,8 @@
             } else {
                 var type = 'Explain'
             }
-            var str = input.value
-            var Token = localStorage.getItem("token")
+            var str = input.value;
+            var Token = localStorage.getItem("token");
             var response = await fetch('https://excelformulabot.com/api/1.1/wf/output/', {
                 method: 'POST',
                 headers: {
@@ -262,15 +298,26 @@
                 redirect: 'follow',
             }).then(response => response.text())
                 .then(result => {
-                    var resp = JSON.parse(result)
+                    var resp = JSON.parse(result);
                     if (resp.status == 'success') {
                         document.getElementById("output").value = resp.response.output
                         submit.innerText = "Submit"
-                        return response.getContentText();
-
+                        return response;
+                      // return response.getContentText();
                     }
-                })
-
+                    else {
+                        document.getElementById("output").value = resp.message;
+                       // document.getElementById("output").value = resp.body.status + " " + resp.body.message;
+                        submit.innerText = "Submit"
+                    }
+                }).catch((error) => {
+                    console.log(error);
+                    document.getElementById("output").value = "Request failed, try again. If issue persists, contact hello@excelformulabot.com";
+                    submit.innerText = "Submit"
+                    // Only network error comes here
+                    // updateBtn('#login', 'Request failed, try again. If issue persists, contact hello@excelformulabot.com', 'Login')
+                    return
+                });
         }
 
         // function OutputResult (e) {
@@ -315,8 +362,9 @@
         function updateBtn(selector, msg, org) {
             var elem = document.querySelector(selector);
             elem.innerText = msg;
-            setTimeout(() => { elem.innerText = org }, 1500);
+            setTimeout(() => { elem.innerText = org }, 2000);
         }
     </script>
 </body>
+
 </html>

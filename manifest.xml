@@ -4,8 +4,8 @@
   <Version>1.0.0.0</Version>
   <ProviderName>AI</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="Formula Bot | AI Formula Generator"/>
-  <Description DefaultValue="Formula Bot | AI Formula Generator"/>
+  <DisplayName DefaultValue="Formula Bot | AI Data Prep"/>
+  <Description DefaultValue="Formula Bot | AI Data Prep"/>
   <IconUrl DefaultValue="https://excelformulabot.github.io/excel-add-in/logo_32.png"/>
   <HighResolutionIconUrl DefaultValue="https://excelformulabot.github.io/excel-add-in/logo_64.png"/>
   <SupportUrl DefaultValue="https://formulabot.com"/>

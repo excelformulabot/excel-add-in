@@ -4,13 +4,13 @@
   <Version>1.0.0.0</Version>
   <ProviderName>AI</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="AI Formula Generator Bot for Excel"/>
-  <Description DefaultValue="AI Formula Generator Bot for Excel"/>
+  <DisplayName DefaultValue="Formula Bot | AI Formula Generator"/>
+  <Description DefaultValue="Formula Bot | AI Formula Generator"/>
   <IconUrl DefaultValue="https://excelformulabot.github.io/excel-add-in/logo_32.png"/>
   <HighResolutionIconUrl DefaultValue="https://excelformulabot.github.io/excel-add-in/logo_64.png"/>
-  <SupportUrl DefaultValue="https://excelformulabot.com/frequently-asked-questions-faq"/>
+  <SupportUrl DefaultValue="https://formulabot.com"/>
   <AppDomains>
-    <AppDomain>https://www.excelformulabot.com</AppDomain>
+    <AppDomain>https://www.formulabot.com</AppDomain>
   </AppDomains>
   <Hosts>
     <Host Name="Workbook"/>
@@ -21,7 +21,7 @@
     </Sets>
   </Requirements>
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://localhost:3000/taskpane.html"/>
+    <SourceLocation DefaultValue="https://excelformulabot.github.io/excel-add-in/src/taskpane/taskpane.html"/>
   </DefaultSettings>
   <Permissions>ReadWriteDocument</Permissions>
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
@@ -90,9 +90,9 @@
       </bt:Images>
       <bt:Urls>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812"/>
-        <bt:Url id="Functions.Script.Url" DefaultValue="https://localhost:3000/public/functions.js"/>
-        <bt:Url id="Functions.Metadata.Url" DefaultValue="https://localhost:3000/public/functions.json"/>
-        <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html"/>
+        <bt:Url id="Functions.Script.Url" DefaultValue="https://excelformulabot.github.io/excel-add-in/src/functions/functions.js"/>
+        <bt:Url id="Functions.Metadata.Url" DefaultValue="https://excelformulabot.github.io/excel-add-in/dist/functions.json"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://excelformulabot.github.io/excel-add-in/src/taskpane/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="Functions.Namespace" DefaultValue="FORMULABOT"/>

@@ -95,7 +95,7 @@
         <bt:Url id="Taskpane.Url" DefaultValue="https://excelformulabot.github.io/excel-add-in/src/taskpane/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="Functions.Namespace" DefaultValue="FORMULA BOT"/>
+        <bt:String id="Functions.Namespace" DefaultValue="FORMULABOT"/>
         <bt:String id="GetStarted.Title" DefaultValue="Show Formula Bot" />
         <bt:String id="CommandsGroup.Label" DefaultValue="Formula Bot" />
         <bt:String id="TaskpaneButton.Label" DefaultValue="Show Formula Bot" />

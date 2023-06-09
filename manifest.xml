@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
-  <Id>11b27e06-63eb-424e-a06a-65cafa69cb25</Id>
+  <Id>af1bca95-f5d2-433a-8cd8-f6234fe8c518</Id>
   <Version>3.0.0.0</Version>
   <ProviderName>AI</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>

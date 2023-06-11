@@ -8,7 +8,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Formula Bot | Excel Add-in</title>
+    <title>excelformulabot</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -65,7 +65,7 @@
 
     <div class="container" id="loginScr" style="display:none;">
       <div class="row small"><span style="font-size: 80%;">
-        <strong>Welcome to Formula Bot!</strong><br>- Translate your text instructions to <strong>generate</strong> Excel formulas within seconds with the help of AI.
+        <strong>Welcome to Formula Bot! (larger text than below)</strong><br>- Translate your text instructions to <strong>generate</strong> Excel formulas within seconds with the help of AI.
 <br>- Receive <strong>explanations</strong> for complex formulas.
 <br>- <strong>Classify</strong> text from a list into multiple categories
 <br>- <strong>Extract</strong> specific information from text
@@ -179,12 +179,34 @@
                 <div class="row">
                   <div class="col-12">
                     <div class="input-group input-group-append">
-                      <input type="text" class="form-control form-control-lg bg-warning bg-gradient border-0" id="txtClassifyRange" placeholder="B2">
-                      <button type="button" class="btn btn-light get-active-range">
-                        <i class="fa-sharp fa-solid fa-table-cells-large"></i>
-                      </button>
+                      <input type="text" class="form-control form-control-lg bg-warning bg-gradient border-0" id="txtClassifyType" placeholder="Company">
                     </div>
                   </div>
+                </div>
+                <div class="row text-center mt-4 py-1">
+                    <div class="col-12">
+                        <div class="text-center fs-5">in cell</div>
+                    </div>
+                </div>
+                <div class="row text-center py-1">
+                    <div class="col-12">
+                      <div class="input-group input-group-append">
+                        <input type="text" class="form-control form-control-lg bg-gradient border-0" style="background-color: #761d514c" id="txtClassifyRange" placeholder="B2">
+                        <button type="button" class="btn btn-light get-active-range">
+                          <i class="fa-sharp fa-solid fa-table-cells-large"></i>
+                        </button>
+                      </div>
+                    </div>
+                </div>
+                <div class="row text-center mt-4 py-1">
+                    <div class="col-12">
+                        <div class="text-center fs-5">based on</div>
+                    </div>
+                </div>
+                <div class="row text-center py-1">
+                    <div class="col-12">
+                        <input type="text" class="form-control form-control-lg bg-gradient border-0" style="background-color: #38761d4c" id="txtClassifyBasedOn" placeholder="industry">
+                    </div>
                 </div>
                 <div class="row text-center mt-4 py-1">
                     <div class="col-12">
@@ -195,7 +217,7 @@
                   <div class="row py-1">
                     <div class="col-sm-12 col-md">
                       <div class="input-group input-group-append">
-                        <input type="text" class="form-control form-control-lg bg-category bg-gradient border-0" placeholder="Group A">
+                        <input type="text" class="form-control form-control-lg bg-category bg-gradient border-0" placeholder="Tech">
                         <button type="button" class="btn btn-light delete-field">
                           <i class="fas fa-trash"></i>
                         </button>
@@ -205,7 +227,7 @@
                   <div class="row py-1">
                     <div class="col-sm-12 col-md">
                       <div class="input-group input-group-append">
-                        <input type="text" class="form-control form-control-lg bg-category bg-gradient border-0" placeholder="Group B">
+                        <input type="text" class="form-control form-control-lg bg-category bg-gradient border-0" placeholder="Retail">
                         <button type="button" class="btn btn-light delete-field">
                           <i class="fas fa-trash"></i>
                         </button>
@@ -434,7 +456,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-12">
-                    <div>The <span class="fw-bolder">=FORMULABOT.INFER</span> formula allows you to insert examples of inputs and outputs to infer additional inputs in which you don't have an output. For example, let's say you have a list of companies in cells A1 to A5 and their respective competitors in B1 to B5 and you have another company in A6 in which you don't know its competitor. The formula you'd use is:<br /><strong>=FORMULABOT_INFER(A1:A5,B1:B5,A6)</strong>
+                    <div>The <span class="fw-bolder">=FORMULABOT.INFER</span> formula allows you to insert examples of inputs and outputs to infer additional inputs in which you don't have an output. For example, let's say you have a list of companies in cells A1 to A5 and their respective competitors in B1 to B5 and you have another company in A6 in which you don't know its competitor. The formula you'd use is:<br /><strong>=FORMULABOT.INFER(A1:A5,B1:B5,A6)</strong>
 </div>
                   </div>
                 </div>
@@ -698,7 +720,9 @@
       });
 
       $(document).on('click', '#btnInsertClassify', async function(){
+        const inputType = $('#txtClassifyType').val();
         const inputRange = $('#txtClassifyRange').val();
+        const inputBasedOn = $('#txtClassifyBasedOn').val();
         var categories = [];
         $('#txtClassifyCategories input').each(function() { 
           if ($(this).val() != '') { 
@@ -706,7 +730,7 @@
           } 
         });
         categories = categories.filter(itm => itm != '').join('","');
-        const formula = `=FORMULABOT.CLASSIFY(${inputRange},"${categories}")`;
+        const formula = `=FORMULABOT.CLASSIFY("${inputType}", ${inputRange}, "${inputBasedOn}", "${categories}")`;
         await insertCellClientSide(formula);
       });
 

@@ -1,4 +1,4 @@
-﻿/* global console */
+/* global console */
 
 const BASE_URL = "https://formulabot.com/api/1.1/wf/";
 
@@ -6,11 +6,13 @@ const BASE_URL = "https://formulabot.com/api/1.1/wf/";
  * =FORMULABOT_CLASSIFY(cell_to_classify, option1, option2,...)
  * Ex:=FORMULABOT_CLASSIFY(F1,"fruit","veggie")
  * @customfunction
+ * @param {string} cell_to_classify_type Input String
  * @param {string} cell_to_classify Input String
+ * @param {string} cell_to_classify_based_on Input String
  * @param {string[][][]} list_options Multiple ranges of values.
  * @returns {string} The Formulabot result
  */
-function CLASSIFY(cell_to_classify, list_options) {
+function CLASSIFY(cell_to_classify_type, cell_to_classify, cell_to_classify_based_on, list_options) {
   // check if user is active
   const activeState = localStorage.getItem("token");
   if (!activeState) {
@@ -19,11 +21,14 @@ function CLASSIFY(cell_to_classify, list_options) {
 
   // call API
   const payload = {
+    inputType: cell_to_classify_type,
     input: cell_to_classify,
+    groupingType: cell_to_classify_based_on,
     groupings: list_options.flat(Infinity).join(","),
     platform: "Excel Add-in",
     outputType: "Classify - FF",
   };
+  console.log('payload',payload)
 
   const result = callAPI("classify", payload);
   return result;

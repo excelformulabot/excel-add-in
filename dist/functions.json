@@ -7,6 +7,7 @@
             "parameters": [
                 {
                     "description": "Input String",
+                     "helpUrl": "http://www.formulabot.com/features/classify",
                     "name": "cell_to_classify",
                     "type": "string"
                 },
@@ -29,6 +30,7 @@
             "parameters": [
                 {
                     "description": "Input String",
+                    "helpUrl": "http://www.formulabot.com/features/extract",
                     "name": "cell_to_extract_info",
                     "type": "string"
                 },
@@ -49,6 +51,7 @@
             "parameters": [
                 {
                     "description": "Input String",
+                    "helpUrl": "http://www.formulabot.com/features/sentiment-analysis",
                     "name": "cell_to_analyze_sentiment",
                     "type": "string"
                 },
@@ -71,6 +74,7 @@
             "parameters": [
                 {
                     "description": "Input String",
+                    "helpUrl": "http://www.formulabot.com/features/retrieve-information",
                     "name": "cell_to_get_info",
                     "type": "string"
                 },
@@ -93,6 +97,7 @@
             "parameters": [
                 {
                     "description": "Multiple ranges of values.",
+                    "helpUrl": "http://www.formulabot.com/features/freeform",
                     "dimensionality": "matrix",
                     "name": "input_any_info",
                     "repeating": true,
@@ -110,6 +115,7 @@
             "parameters": [
                 {
                     "description": "Multiple ranges of values.",
+                    "helpUrl": "http://www.formulabot.com/features/inference",
                     "dimensionality": "matrix",
                     "name": "input_examples",
                     "type": "string"

@@ -3,8 +3,8 @@
 const BASE_URL = "https://formulabot.com/api/1.1/wf/";
 
 /**
- * =FORMULABOT_CLASSIFY(cell_to_classify, option1, option2,...)
- * Ex:=FORMULABOT_CLASSIFY(F1,"fruit","veggie")
+ * =FORMULABOT_CLASSIFY(cell_to_classify_type, cell_to_classify, cell_to_classify_based_on, option1, option2,...)
+ * Ex:=FORMULABOT_CLASSIFY("Company",A1,"Industry","Tech","Retail")
  * @customfunction
  * @param {string} cell_to_classify_type Input String
  * @param {string} cell_to_classify Input String

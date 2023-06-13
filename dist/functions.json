@@ -7,7 +7,17 @@
             "parameters": [
                 {
                     "description": "Input String",
+                    "name": "cell_to_classify_type",
+                    "type": "string"
+                },
+                {
+                    "description": "Input String",
                     "name": "cell_to_classify",
+                    "type": "string"
+                },
+                {
+                    "description": "Input String",
+                    "name": "cell_to_classify_based_on",
                     "type": "string"
                 },
                 {
@@ -109,7 +119,7 @@
             "name": "INFER",
             "parameters": [
                 {
-                    "description": "Multiple ranges of values.",                    
+                    "description": "Multiple ranges of values.",
                     "dimensionality": "matrix",
                     "name": "input_examples",
                     "type": "string"

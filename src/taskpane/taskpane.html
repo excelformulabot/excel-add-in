@@ -85,7 +85,7 @@
       <div class="mt-3" style="text-align: -webkit-center">
         <button class="btn btn-secondary bg-[#0C4D78] hover:bg-[#063c61] active:bg-[#063c61] focus:bg-[#063c61] w-200" id="login">Login</button>
         <div class="text-center ml-4">
-          <a href="http://www.formulabot.com/?utm_source=googlesheets&utm_medium=addon" target="blank">Sign up for free!</a>
+          <a href="http://www.formulabot.com/?utm_source=excel&utm_medium=addon" target="blank">Sign up for free!</a>
         </div>
       </div>
       <div class="text-center position-absolute bottom-2">
@@ -771,7 +771,7 @@
 
           const payload = {
             "input": input.toString(),
-            "platform": "Google Sheets Add-in",
+            "platform": "Excel Add-in",
             "outputType": "Formula"
           }
           const result = await callAPI('output', payload);
@@ -796,7 +796,7 @@
           
           const payload = {
             "input": input.toString(),
-            "platform": "Google Sheets Add-in",
+            "platform": "Excel Add-in",
             "outputType": "Explain"
           }
           const result = await callAPI('output', payload);

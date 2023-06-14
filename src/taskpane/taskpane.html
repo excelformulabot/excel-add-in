@@ -1,5 +1,6 @@
 <!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. -->
 <!-- This file shows how to design a first-run page that provides a welcome screen to the user about the features of the add-in. -->
+
 <!DOCTYPE html>
 <html>
 
@@ -7,7 +8,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Formula Bot | AI Data Prep</title>
+    <title>excelformulabot</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -85,10 +86,11 @@
       <div class="mt-3" style="text-align: -webkit-center">
         <button class="btn btn-secondary bg-[#0C4D78] hover:bg-[#063c61] active:bg-[#063c61] focus:bg-[#063c61] w-200" id="login">Login</button>
         <div class="text-center ml-4">
-          <a href="http://www.formulabot.com/?utm_source=excel&utm_medium=addon" target="blank">Sign up for free!</a>
+          <a href="http://www.formulabot.com/?utm_source=googlesheets&utm_medium=addon" target="blank">Sign up for free!</a>
         </div>
       </div>
       <div class="text-center position-absolute bottom-2">
+        <p>Experiencing issues? Contact <a href="mailto:hello@formulabot.com">hello@formulabot.com</a></p>
       </div>
     </div>
 
@@ -496,7 +498,6 @@
         <!-- ADVANCED FEATURES -->
         <fieldset class="border rounded-3 my-2 px-2 pt-0 pb-2">
           <legend class="float-none w-auto px-4" style="font-size: 16px;">Data Prep Toolkit</legend>
-            <legend class="float-none w-auto px-4" style="font-size: 12px;">Currently in beta, will be functional for all users soon!</legend>
           <div class="row py-1">
             <div class="col">
                 <button type="button" class="btn btn-section-advanced btn-lg w-100" id="classify-button">
@@ -771,7 +772,7 @@
 
           const payload = {
             "input": input.toString(),
-            "platform": "Excel Add-in",
+            "platform": "Google Sheets Add-in",
             "outputType": "Formula"
           }
           const result = await callAPI('output', payload);

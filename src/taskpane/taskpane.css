@@ -85,66 +85,93 @@ b {
 .section-label { font-size: 80% !important; }
 .section-sublabel { font-size: 60% !important; }
 :root {
---green-text-color: #38761d;
---orange-text-color: #e69138;
+    --dark-gray: #053438;
+    --light-gray: #697586;
+    --green-text-color: #2FB181;
+    --module-border-color: #E3E8EFB3;
+    --module-icon-color: #82999c;
+    --module-descriptions-color: #697586;
+    --purple-text-color: #AD48FD;
+    --light-purple: #AD48FD1A;
+    --medium-purple: #AD48FD33;
+    --dark-purple: #AD48FD;
+    
+    --orange-text-color: #e69138;
+    --success-color: #ad48fdff;
+    --primary-color: #feb701ff;
+    --secondary-color: #3da5d9ff;
+    --home-paste-color: #38761dff;
+    --range-color: #feb70160;
+    --category-color: #3da5d94c;
+    --section-color: #f8f8f8;
+    --success-hover-color: #8c35d6ff;
+    --primary-hover-color: #b88000ff;
+    --secondary-hover-color: #2c859bff;
+    --home-paste-hover-color: #214a0e;
+    --range-hover-color: #b8800060;
+    --section-hover-color: #f8f8f8;
+    --success-click-color: #6c24a6ff;
+    --primary-click-color: #9f6e00ff;
+    --secondary-click-color: #24607dff;
+    --home-paste-click-color: #244f12;
+    --range-click-color: #9f6e0060;
+    --section-click-color: #CCCCCC;
+    --success-disabled-color: #e5d5f0ff;
+    --primary-disabled-color: #fdf4d7ff;
+    --secondary-disabled-color: #d4e1e7ff;
+    --home-paste-disabled-color: #7d9772;
+    --range-disabled-color: #fdf4d760;
+    --section-disabled-color: #d9d9d9;
+    }
 
---success-color: #ad48fdff;
---primary-color: #feb701ff;
---secondary-color: #3da5d9ff;
---home-paste-color: #38761dff;
---range-color: #feb70160;
---category-color: #3da5d94c;
---section-color: #f8f8f8;
---section-advanced-color: #fff2e5;
---success-hover-color: #8c35d6ff;
---primary-hover-color: #b88000ff;
---secondary-hover-color: #2c859bff;
---home-paste-hover-color: #214a0e;
---range-hover-color: #b8800060;
---section-hover-color: #e0e0e0;
---section-advanced-hover-color: #ffe3c6;
---success-click-color: #6c24a6ff;
---primary-click-color: #9f6e00ff;
---secondary-click-color: #24607dff;
---home-paste-click-color: #244f12;
---range-click-color: #9f6e0060;
---section-click-color: #CCCCCC;
---section-advanced-click-color: #ffe3c6;
---success-disabled-color: #e5d5f0ff;
---primary-disabled-color: #fdf4d7ff;
---secondary-disabled-color: #d4e1e7ff;
---home-paste-disabled-color: #7d9772;
---range-disabled-color: #fdf4d760;
---section-disabled-color: #d9d9d9;
---section-advanced-disabled-color: #d9d9d9;
-}
+    input::placeholder { color: var(--light-gray) !important }
+    
+    .text-purple { color: var(--dark-purple) !important; }
+    .get-active-range { color: var(--dark-gray) !important; }
+    .btn-submit { background-color: var(--dark-purple) !important; color: #FFF !important; }
 
-.bg-range { background-color: var(--range-color) !important; }
-.bg-category { background-color: var(--category-color) !important; }
+    // list vs card views
+    .view-type { cursor: pointer; }
 
-.btn-primary { background-color: var(--primary-color) !important; border:none !important; color: #FFF !important; }
-.btn-secondary { background-color: var(--secondary-color) !important; border:none !important; color: #FFF !important; }
-.btn-success { background-color: var(--success-color) !important; border:none !important; color: #FFF !important; }
-.btn-section { background-color: var(--section-color) !important; }
-.btn-section-advanced { background-color: var(--section-advanced-color) !important; }
-.btn-home-paste { background-color: var(--home-paste-color) !important; border:none !important; color: #FFF !important; }
+    // paste widget
+    #paste-widget > .section-sublabel { color: var(--light-gray) !important; font-size: 80% !important; }
+    #btnPasteValues { background-color: var(--light-purple) !important; border: thin solid var(--medium-purple) !important; color: var(--dark-purple) !important; }
+    #btnPasteValues:hover { background-color: var(--medium-purple) !important; }
+    #btnPasteValues > div { color: var(--dark-purple) !important; font-size: 100% !important; }
 
-.btn-success:hover { background-color: var(--success-hover-color) !important; }
-.btn-primary:hover { background-color: var(--primary-hover-color) !important; }
-.btn-secondary:hover { background-color: var(--secondary-hover-color) !important; }
-.btn-range:hover { background-color: var(--range-hover-color) !important; }
-.btn-section:hover { background-color: var(--section-hover-color) !important; }
-.btn-section-advanced:hover { background-color: var(--section-advanced-hover-color) !important; }
-.btn-home-paste:hover { background-color: var(--home-paste-hover-color) !important; }
+    .text-green { color: var(--green-text-color) }
+    .text-orange { color: var(--orange-text-color) }
+    .text-light-gray { color: var(--light-gray) }
 
-.btn-success:active, .btn-success:focus, .btn-success:active:focus { background-color: var(--success-click-color) !important; }
-.btn-primary:active, .btn-primary:focus, .btn-primary:active:focus { background-color: var(--primary-click-color) !important; }
-.btn-secondary:active, .btn-secondary:focus, .btn-secondary:active:focus { background-color: var(--secondary-click-color) !important; }
-.btn-range:active, .btn-range:focus, .btn-range:active:focus { background-color: var(--range-click-color) !important; }
-.btn-section:active, .btn-section:focus, .btn-section:active:focus { background-color: var(--section-click-color) !important; }
-.btn-section-advanced:active, .btn-section-advanced:focus, .btn-section-advanced:active:focus { background-color: var(--section-advanced-click-color) !important; }
-.btn-section:disabled { background-color: var(--section-disabled-color) !important; }
-.btn-section-advanced:disabled { background-color: var(--section-advanced-disabled-color) !important; }
+    .card { margin-bottom: 1rem; cursor: pointer; }
+    .card-title > i { color: var(--light-gray) !important; font-size: 80% !important; }
+    .card:hover { background-color: #f8f8f8 !important; }
+    .card-body{ min-height: 4rem; }
+    
+    .list-view {
+    .row {
+        > [class*='col-'] {
+        max-width: 100%;
+        flex: 0 0 100%;
+        }
+    }
+    .card {
+        @media (max-width: 575.98px) {
+        flex-direction: column;
+        }
+        flex-direction: row;
+        > .card-img-top {
+        width: auto;
+        }
+        
+        .card-body {
+        display: inline-block;
+        }
+        font-size:90% !important;
+    }
+    }
 
-.text-green { color: var(--green-text-color) }
-.text-orange { color: var(--orange-text-color) }
+    .grid-container:not(.list-view) {
+    .card-text { min-height: 3rem !important; }
+    .card-title { font-size:100% !important; }
+    }

@@ -1,7 +1,7 @@
 {
     "functions": [
         {
-            "description": "=FORMULABOT_CLASSIFY(cell_to_classify, option1, option2,...)\nEx:=FORMULABOT_CLASSIFY(F1,\"fruit\",\"veggie\")",
+            "description": "=FORMULABOT_CLASSIFY(cell_to_classify_type, cell_to_classify, cell_to_classify_based_on, option1, option2,...)\nEx:=FORMULABOT_CLASSIFY(\"Company\",A1,\"Industry\",\"Tech\",\"Retail\")",
             "id": "CLASSIFY",
             "name": "CLASSIFY",
             "parameters": [

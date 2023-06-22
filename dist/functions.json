@@ -1,7 +1,7 @@
 {
     "functions": [
         {
-            "description": "=FORMULABOT_CLASSIFY(cell_to_classify_type, cell_to_classify, cell_to_classify_based_on, option1, option2,...)\nEx:=FORMULABOT_CLASSIFY(\"Company\",A1,\"Industry\",\"Tech\",\"Retail\")",
+            "description": "=FORMULABOT.CLASSIFY(cell_to_classify_type, cell_to_classify, cell_to_classify_based_on, option1, option2,...)\nEx:=FORMULABOT.CLASSIFY(\"Company\",A1,\"Industry\",\"Tech\",\"Retail\")",
             "id": "CLASSIFY",
             "name": "CLASSIFY",
             "helpUrl": "http://www.formulabot.com.com/features/classify",
@@ -34,7 +34,7 @@
             }
         },
         {
-            "description": "=FORMULABOT_EXTRACT(cell_to_extract_info, info_to_extract)\nEx: =FORMULABOT_EXTRACT(F1,\"company name\")",
+            "description": "=FORMULABOT.EXTRACT(cell_to_extract_info, info_to_extract)\nEx: =FORMULABOT.EXTRACT(F1,\"company name\")",
             "id": "EXTRACT",
             "name": "EXTRACT",
             "helpUrl": "http://www.formulabot.com.com/features/extract",
@@ -55,7 +55,7 @@
             }
         },
         {
-            "description": "=FORMULABOT_SENTIMENT(cell_to_analyze_sentiment, option1, option2,...)\nEx: =FORMULABOT_SENTIMENT(F1,\"positive\",\"negative\",\"neutral\")",
+            "description": "=FORMULABOT.SENTIMENT(cell_to_analyze_sentiment, option1, option2,...)\nEx: =FORMULABOT.SENTIMENT(F1,\"positive\",\"negative\",\"neutral\")",
             "id": "SENTIMENT",
             "name": "SENTIMENT",
             "helpUrl": "http://www.formulabot.com.com/features/sentiment-analysis",
@@ -78,7 +78,7 @@
             }
         },
         {
-            "description": "=FORMULABOT_INFO(cell_to_get_info, info_request)\nEx: =FORMULABOT_INFO(F1,\"tallest building\")",
+            "description": "=FORMULABOT.INFO(cell_to_get_info, info_request)\nEx: =FORMULABOT.INFO(F1,\"tallest building\")",
             "id": "INFO",
             "name": "INFO",
             "helpUrl": "http://www.formulabot.com.com/features/retrieve-information",
@@ -101,7 +101,7 @@
             }
         },
         {
-            "description": "=FORMULABOT_FREEFORM(input_any_info)\nEx: =FORMULABOT_FREEFORM( “Write me a thank you note to ”, B10 ,“for gifting me a”, C10)",
+            "description": "=FORMULABOT.FREEFORM(input_any_info)\nEx: =FORMULABOT.FREEFORM( “Write me a thank you note to ”, B10 ,“for gifting me a”, C10)",
             "id": "FREEFORM",
             "name": "FREEFORM",
              "helpUrl": "http://www.formulabot.com.com/features/freeform",
@@ -119,7 +119,7 @@
             }
         },
         {
-            "description": "=FORMULABOT_INFER(input_examples, output_examples, input_to_predict)\nEx: =FORMULABOT_INFER(A1:A5,B1:B5,A6)",
+            "description": "=FORMULABOT.INFER(input_examples, output_examples, input_to_predict)\nEx: =FORMULABOT.INFER(A1:A5,B1:B5,A6)",
             "id": "INFER",
             "name": "INFER",
             "helpUrl": "http://www.formulabot.com.com/features/inference",

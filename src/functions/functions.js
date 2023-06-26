@@ -13,7 +13,7 @@ const BASE_URL = "https://formulabot.com/api/1.1/wf/";
  * @returns {string} The Formulabot result
  * @helpurl http://www.formulabot.com.com/features/classify
  */
-function CLASSIFY(cell_to_classify_type, cell_to_classify, cell_to_classify_based_on, list_options) {
+async function CLASSIFY(cell_to_classify_type, cell_to_classify, cell_to_classify_based_on, list_options) {
   // check if user is active
   const activeState = localStorage.getItem("token");
   if (!activeState) {
@@ -31,7 +31,7 @@ function CLASSIFY(cell_to_classify_type, cell_to_classify, cell_to_classify_base
   };
   console.log('payload',payload)
 
-  const result = callAPI("classify", payload);
+  const result = await callAPI("classify", payload);
   return result;
   /*
   try {
@@ -51,7 +51,7 @@ function CLASSIFY(cell_to_classify_type, cell_to_classify, cell_to_classify_base
  * @returns {string} The Formulabot result
  * @helpurl http://www.formulabot.com.com/features/extract
  */
-function EXTRACT(cell_to_extract_info, info_to_extract) {
+async function EXTRACT(cell_to_extract_info, info_to_extract) {
   // check if user is active
   const activeState = localStorage.getItem("token");
   if (!activeState) {
@@ -67,7 +67,7 @@ function EXTRACT(cell_to_extract_info, info_to_extract) {
   };
 
   try {
-    const result = callAPI("extract", payload);
+    const result = await callAPI("extract", payload);
     return result;
     //return JSON.stringify(payload);
   } catch (e) {
@@ -84,7 +84,7 @@ function EXTRACT(cell_to_extract_info, info_to_extract) {
  * @returns {string} The Formulabot result
  * @helpurl http://www.formulabot.com.com/features/sentiment-analysis
  */
-function SENTIMENT(cell_to_analyze_sentiment, options) {
+async function SENTIMENT(cell_to_analyze_sentiment, options) {
   // check if user is active
   const activeState = localStorage.getItem("token");
   if (!activeState) {
@@ -100,7 +100,7 @@ function SENTIMENT(cell_to_analyze_sentiment, options) {
   };
 
   try {
-    const result = callAPI("sentiment", payload);
+    const result = await callAPI("sentiment", payload);
     return result;
   } catch (e) {
     return "No result found";
@@ -116,7 +116,7 @@ function SENTIMENT(cell_to_analyze_sentiment, options) {
  * @returns {string} The Formulabot result
  * @helpurl http://www.formulabot.com.com/features/retrieve-information
  */
-function INFO(cell_to_get_info, info_request) {
+async function INFO(cell_to_get_info, info_request) {
   // check if user is active
   const activeState = localStorage.getItem("token");
   if (!activeState) {
@@ -132,7 +132,7 @@ function INFO(cell_to_get_info, info_request) {
   };
 
   try {
-    const result = callAPI("info", payload);
+    const result = await callAPI("info", payload);
     return result;
   } catch (e) {
     return "No result found";
@@ -147,7 +147,7 @@ function INFO(cell_to_get_info, info_request) {
  * @returns {string} The Formulabot result
  * @helpurl http://www.formulabot.com.com/features/freeform
  */
-function FREEFORM(input_any_info) {
+async function FREEFORM(input_any_info) {
   // check if user is active
   const activeState = localStorage.getItem("token");
   if (!activeState) {
@@ -162,7 +162,7 @@ function FREEFORM(input_any_info) {
   };
 
   try {
-    const result = callAPI("freeform", payload);
+    const result = await callAPI("freeform", payload);
     return result;
   } catch (e) {
     return "No result found";
@@ -179,7 +179,7 @@ function FREEFORM(input_any_info) {
  * @returns {string} The Formulabot result
  * @helpurl http://www.formulabot.com.com/features/inference
  */
-function INFER(input_examples, output_examples, input_to_predict) {
+async function INFER(input_examples, output_examples, input_to_predict) {
   // check if user is active
   const activeState = localStorage.getItem("token");
   if (!activeState) {
@@ -209,7 +209,7 @@ function INFER(input_examples, output_examples, input_to_predict) {
   };
 
   try {
-    const result = callAPI("infer", payload);
+    const result = await callAPI("infer", payload);
     return result;
   } catch (e) {
     return "No result found";

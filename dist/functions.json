@@ -2,9 +2,9 @@
     "functions": [
         {
             "description": "=FORMULABOT.CLASSIFY(cell_to_classify_type, cell_to_classify, cell_to_classify_based_on, option1, option2,...)\nEx:=FORMULABOT.CLASSIFY(\"Company\",A1,\"Industry\",\"Tech\",\"Retail\")",
+            "helpUrl": "http://www.formulabot.com.com/features/classify",
             "id": "CLASSIFY",
             "name": "CLASSIFY",
-            "helpUrl": "http://www.formulabot.com.com/features/classify",
             "parameters": [
                 {
                     "description": "Input String",
@@ -35,9 +35,9 @@
         },
         {
             "description": "=FORMULABOT.EXTRACT(cell_to_extract_info, info_to_extract)\nEx: =FORMULABOT.EXTRACT(F1,\"company name\")",
+            "helpUrl": "http://www.formulabot.com.com/features/extract",
             "id": "EXTRACT",
             "name": "EXTRACT",
-            "helpUrl": "http://www.formulabot.com.com/features/extract",
             "parameters": [
                 {
                     "description": "Input String",
@@ -56,9 +56,9 @@
         },
         {
             "description": "=FORMULABOT.SENTIMENT(cell_to_analyze_sentiment, option1, option2,...)\nEx: =FORMULABOT.SENTIMENT(F1,\"positive\",\"negative\",\"neutral\")",
+            "helpUrl": "http://www.formulabot.com.com/features/sentiment-analysis",
             "id": "SENTIMENT",
             "name": "SENTIMENT",
-            "helpUrl": "http://www.formulabot.com.com/features/sentiment-analysis",
             "parameters": [
                 {
                     "description": "Input String",
@@ -79,9 +79,9 @@
         },
         {
             "description": "=FORMULABOT.INFO(cell_to_get_info, info_request)\nEx: =FORMULABOT.INFO(F1,\"tallest building\")",
+            "helpUrl": "http://www.formulabot.com.com/features/retrieve-information",
             "id": "INFO",
             "name": "INFO",
-            "helpUrl": "http://www.formulabot.com.com/features/retrieve-information",
             "parameters": [
                 {
                     "description": "Input String",
@@ -102,9 +102,9 @@
         },
         {
             "description": "=FORMULABOT.FREEFORM(input_any_info)\nEx: =FORMULABOT.FREEFORM( “Write me a thank you note to ”, B10 ,“for gifting me a”, C10)",
+            "helpUrl": "http://www.formulabot.com.com/features/freeform",
             "id": "FREEFORM",
             "name": "FREEFORM",
-             "helpUrl": "http://www.formulabot.com.com/features/freeform",
             "parameters": [
                 {
                     "description": "Multiple ranges of values.",
@@ -120,9 +120,9 @@
         },
         {
             "description": "=FORMULABOT.INFER(input_examples, output_examples, input_to_predict)\nEx: =FORMULABOT.INFER(A1:A5,B1:B5,A6)",
+            "helpUrl": "http://www.formulabot.com.com/features/inference",
             "id": "INFER",
             "name": "INFER",
-            "helpUrl": "http://www.formulabot.com.com/features/inference",
             "parameters": [
                 {
                     "description": "Multiple ranges of values.",

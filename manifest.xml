@@ -91,7 +91,7 @@
       <bt:Urls>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812"/>
         <bt:Url id="Functions.Script.Url" DefaultValue="https://e1b5c549a6dd5273e224cd87b24dd3fb.cdn.bubble.io/f1688040126660x527559958825609700/functions.js"/>
-        <bt:Url id="Functions.Metadata.Url" DefaultValue="https://excelformulabot.github.io/excel-add-in/dist/functions.json"/>
+        <bt:Url id="Functions.Metadata.Url" DefaultValue="https://e1b5c549a6dd5273e224cd87b24dd3fb.cdn.bubble.io/f1688040174037x475471807209413060/functions.json"/>
         <bt:Url id="Taskpane.Url" DefaultValue="https://excelformulabot.github.io/excel-add-in/src/taskpane/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>

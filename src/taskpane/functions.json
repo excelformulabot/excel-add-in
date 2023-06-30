@@ -1,0 +1,150 @@
+{
+    "functions": [
+        {
+            "description": "=FORMULABOT.CLASSIFY(cell_to_classify_type, cell_to_classify, cell_to_classify_based_on, option1, option2,...)\nEx:=FORMULABOT.CLASSIFY(\"Company\",A1,\"Industry\",\"Tech\",\"Retail\")",
+            "helpUrl": "http://www.formulabot.com/features/classify",
+            "id": "CLASSIFY",
+            "name": "CLASSIFY",
+            "parameters": [
+                {
+                    "description": "Input String",
+                    "name": "cell_to_classify_type",
+                    "type": "string"
+                },
+                {
+                    "description": "Input String",
+                    "name": "cell_to_classify",
+                    "type": "string"
+                },
+                {
+                    "description": "Input String",
+                    "name": "cell_to_classify_based_on",
+                    "type": "string"
+                },
+                {
+                    "description": "Multiple ranges of values.",
+                    "dimensionality": "matrix",
+                    "name": "list_options",
+                    "repeating": true,
+                    "type": "string"
+                }
+            ],
+            "result": {
+                "type": "string"
+            }
+        },
+        {
+            "description": "=FORMULABOT.EXTRACT(cell_to_extract_info, info_to_extract)\nEx: =FORMULABOT.EXTRACT(F1,\"company name\")",
+            "helpUrl": "http://www.formulabot.com/features/extract",
+            "id": "EXTRACT",
+            "name": "EXTRACT",
+            "parameters": [
+                {
+                    "description": "Input String",
+                    "name": "cell_to_extract_info",
+                    "type": "string"
+                },
+                {
+                    "description": "Input String",
+                    "name": "info_to_extract",
+                    "type": "string"
+                }
+            ],
+            "result": {
+                "type": "string"
+            }
+        },
+        {
+            "description": "=FORMULABOT.SENTIMENT(cell_to_analyze_sentiment, option1, option2,...)\nEx: =FORMULABOT.SENTIMENT(F1,\"positive\",\"negative\",\"neutral\")",
+            "helpUrl": "http://www.formulabot.com/features/sentiment-analysis",
+            "id": "SENTIMENT",
+            "name": "SENTIMENT",
+            "parameters": [
+                {
+                    "description": "Input String",
+                    "name": "cell_to_analyze_sentiment",
+                    "type": "string"
+                },
+                {
+                    "description": "Multiple ranges of values.",
+                    "dimensionality": "matrix",
+                    "name": "options",
+                    "repeating": true,
+                    "type": "string"
+                }
+            ],
+            "result": {
+                "type": "string"
+            }
+        },
+        {
+            "description": "=FORMULABOT.INFO(cell_to_get_info, info_request)\nEx: =FORMULABOT.INFO(F1,\"tallest building\")",
+            "helpUrl": "http://www.formulabot.com/features/retrieve-information",
+            "id": "INFO",
+            "name": "INFO",
+            "parameters": [
+                {
+                    "description": "Input String",
+                    "name": "cell_to_get_info",
+                    "type": "string"
+                },
+                {
+                    "description": "Multiple ranges of values.",
+                    "dimensionality": "matrix",
+                    "name": "info_request",
+                    "repeating": true,
+                    "type": "string"
+                }
+            ],
+            "result": {
+                "type": "string"
+            }
+        },
+        {
+            "description": "=FORMULABOT.FREEFORM(input_any_info)\nEx: =FORMULABOT.FREEFORM( “Write me a thank you note to ”, B10 ,“for gifting me a”, C10)",
+            "helpUrl": "http://www.formulabot.com/features/freeform",
+            "id": "FREEFORM",
+            "name": "FREEFORM",
+            "parameters": [
+                {
+                    "description": "Multiple ranges of values.",
+                    "dimensionality": "matrix",
+                    "name": "input_any_info",
+                    "repeating": true,
+                    "type": "string"
+                }
+            ],
+            "result": {
+                "type": "string"
+            }
+        },
+        {
+            "description": "=FORMULABOT.INFER(input_examples, output_examples, input_to_predict)\nEx: =FORMULABOT.INFER(A1:A5,B1:B5,A6)",
+            "helpUrl": "http://www.formulabot.com/features/inference",
+            "id": "INFER",
+            "name": "INFER",
+            "parameters": [
+                {
+                    "description": "Multiple ranges of values.",
+                    "dimensionality": "matrix",
+                    "name": "input_examples",
+                    "type": "string"
+                },
+                {
+                    "description": "Multiple ranges of values.",
+                    "dimensionality": "matrix",
+                    "name": "output_examples",
+                    "type": "string"
+                },
+                {
+                    "description": "Input String",
+                    "name": "input_to_predict",
+                    "type": "string"
+                }
+            ],
+            "result": {
+                "type": "string"
+            }
+        }
+    ]
+}

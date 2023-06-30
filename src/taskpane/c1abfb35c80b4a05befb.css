@@ -1,0 +1,187 @@
+/* 
+ * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
+ * See LICENSE in the project root for license information.
+ */
+
+ html,
+ body {
+     width: 100%;
+     height: 100%;
+     margin: 0;
+     padding: 0;
+ }
+
+ a { color: blue !important; text-decoration: underline !important; }
+ 
+ ul {
+     margin: 0;
+     padding: 0;
+ }
+ 
+ .ms-welcome__header {
+    padding: 20px;
+    padding-bottom: 30px;
+    padding-top: 100px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+ }
+
+ .ms-welcome__main {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-flex: 1 0 0;
+    flex: 1 0 0;
+    padding: 10px 20px;
+ }
+ 
+ .ms-welcome__main > h2 {
+     width: 100%;
+     text-align: center;
+ }
+ 
+ .ms-welcome__features {
+     list-style-type: none;
+     margin-top: 20px;
+ }
+ 
+ .ms-welcome__features.ms-List .ms-ListItem {
+     padding-bottom: 20px;
+     display: -webkit-flex;
+     display: flex;
+ }
+ 
+ .ms-welcome__features.ms-List .ms-ListItem > .ms-Icon {
+     margin-right: 10px;
+ }
+ 
+ .ms-welcome__action.ms-Button--hero {
+     margin-top: 30px;
+ }
+ 
+.ms-Button.ms-Button--hero .ms-Button-label {
+  color: #0078d7;
+}
+
+.ms-Button.ms-Button--hero:hover .ms-Button-label,
+.ms-Button.ms-Button--hero:focus .ms-Button-label{
+  color: #005a9e;
+  cursor: pointer;
+}
+
+b {
+    font-weight: bold;
+}
+
+
+.section-label { font-size: 80% !important; }
+.section-sublabel { font-size: 60% !important; }
+:root {
+    --dark-gray: #053438;
+    --light-gray: #697586;
+    --green-text-color: #2FB181;
+    --module-border-color: #E3E8EFB3;
+    --module-icon-color: #82999c;
+    --module-descriptions-color: #697586;
+    --purple-text-color: #AD48FD;
+    --light-purple: #AD48FD1A;
+    --medium-purple: #AD48FD33;
+    --dark-purple: #AD48FD;
+    
+    --orange-text-color: #e69138;
+    --success-color: #ad48fdff;
+    --primary-color: #feb701ff;
+    --secondary-color: #3da5d9ff;
+    --home-paste-color: #38761dff;
+    --range-color: #feb70160;
+    --category-color: #3da5d94c;
+    --section-color: #f8f8f8;
+    --success-hover-color: #8c35d6ff;
+    --primary-hover-color: #b88000ff;
+    --secondary-hover-color: #2c859bff;
+    --home-paste-hover-color: #214a0e;
+    --range-hover-color: #b8800060;
+    --section-hover-color: #f8f8f8;
+    --success-click-color: #6c24a6ff;
+    --primary-click-color: #9f6e00ff;
+    --secondary-click-color: #24607dff;
+    --home-paste-click-color: #244f12;
+    --range-click-color: #9f6e0060;
+    --section-click-color: #CCCCCC;
+    --success-disabled-color: #e5d5f0ff;
+    --primary-disabled-color: #fdf4d7ff;
+    --secondary-disabled-color: #d4e1e7ff;
+    --home-paste-disabled-color: #7d9772;
+    --range-disabled-color: #fdf4d760;
+    --section-disabled-color: #d9d9d9;
+    }
+
+    input::placeholder { color: var(--light-gray) !important }
+    
+    .text-purple { color: var(--dark-purple) !important; }
+    .get-active-range { color: var(--dark-gray) !important; }
+    .btn-submit { background-color: var(--dark-purple) !important; color: #FFF !important; }
+
+    // list vs card views
+    .view-type { cursor: pointer; }
+
+    // paste widget
+    #paste-widget > .section-sublabel { color: var(--light-gray) !important; font-size: 80% !important; }
+    #btnPasteValues { background-color: var(--light-purple) !important; border: thin solid var(--medium-purple) !important; color: var(--dark-purple) !important; }
+    #btnPasteValues:hover { background-color: var(--medium-purple) !important; }
+    #btnPasteValues > div { color: var(--dark-purple) !important; font-size: 100% !important; }
+
+    .text-green { color: var(--green-text-color) }
+    .text-orange { color: var(--orange-text-color) }
+    .text-light-gray { color: var(--light-gray) }
+
+    .card { margin-bottom: 1rem; cursor: pointer; }
+    .card-title > i { color: var(--light-gray) !important; font-size: 80% !important; }
+    .card:hover { background-color: #f8f8f8 !important; }
+    .card-body{ min-height: 4rem; }
+    
+    .list-view {
+    .row {
+        > [class*='col-'] {
+        max-width: 100%;
+        flex: 0 0 100%;
+        }
+    }
+    .card {
+        @media (max-width: 575.98px) {
+        flex-direction: column;
+        }
+        flex-direction: row;
+        > .card-img-top {
+        width: auto;
+        }
+        
+        .card-body {
+        display: inline-block;
+        }
+        font-size:90% !important;
+    }
+    }
+
+    .grid-container:not(.list-view) {
+        .card-text { min-height: 3rem !important; }
+        .card-title { font-size:100% !important; }
+    }
+
+    .list-group-item .border-0 {
+        list-style-type: disc !important;
+
+    }
+
+    .list-group-item::before {
+        content: "●";
+        margin-right: 0.75rem;
+    }

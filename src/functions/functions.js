@@ -1,6 +1,35 @@
 /* global console */
 
 const BASE_URL = "https://formulabot.com/api/1.1/wf/";
+const LOGIN_MESSAGE = 'Please log out in the top right corner then log back in to generate request.';
+
+
+async function callAPI(endpoint, payload) {
+  const BASE_URL = "https://formulabot.com/api/1.1/wf/";
+  var Token = localStorage.getItem("token");
+  console.log(Token);
+  try {
+    const url = BASE_URL + endpoint;
+    const options = {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${Token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload), // Use "body" instead of "payload" for the request body
+    };
+    console.log("CALL API OPTIONS", url, options);
+    var response = await fetch(url, options);
+    console.log(response);
+    var resp = await response.json();
+    console.log("CALL API RESP", resp);
+    var result = resp?.response?.output ?? "No Result Found";
+    return result;
+  } catch (e) {
+    return "No Result Found " + e;
+  }
+}
+
 
 /**
  * =FORMULABOT.CLASSIFY(cell_to_classify_type, cell_to_classify, cell_to_classify_based_on, option1, option2,...)
@@ -11,13 +40,13 @@ const BASE_URL = "https://formulabot.com/api/1.1/wf/";
  * @param {string} cell_to_classify_based_on Input String
  * @param {string[][][]} list_options Multiple ranges of values.
  * @returns {string} The Formulabot result
- * @helpurl http://www.formulabot.com.com/features/classify
+ * @helpurl http://www.formulabot.com/features/classify
  */
 async function CLASSIFY(cell_to_classify_type, cell_to_classify, cell_to_classify_based_on, list_options) {
   // check if user is active
   const activeState = localStorage.getItem("token");
   if (!activeState) {
-    return "Please log in.";
+    return LOGIN_MESSAGE;
   }
 
   // call API
@@ -33,13 +62,7 @@ async function CLASSIFY(cell_to_classify_type, cell_to_classify, cell_to_classif
 
   const result = await callAPI("classify", payload);
   return result;
-  /*
-  try {
-    const result = callAPI("classify", payload);
-    return result;
-  } catch (e) {
-    return "No result found";
-  }*/
+
 }
 
 /**
@@ -49,13 +72,13 @@ async function CLASSIFY(cell_to_classify_type, cell_to_classify, cell_to_classif
  * @param {string} cell_to_extract_info Input String
  * @param {string} info_to_extract Input String
  * @returns {string} The Formulabot result
- * @helpurl http://www.formulabot.com.com/features/extract
+ * @helpurl http://www.formulabot.com/features/extract
  */
 async function EXTRACT(cell_to_extract_info, info_to_extract) {
   // check if user is active
   const activeState = localStorage.getItem("token");
   if (!activeState) {
-    return "Please log in.";
+    return LOGIN_MESSAGE;
   }
 
   // call API
@@ -82,13 +105,13 @@ async function EXTRACT(cell_to_extract_info, info_to_extract) {
  * @param {string} cell_to_analyze_sentiment Input String
  * @param {string[][][]} options Multiple ranges of values.
  * @returns {string} The Formulabot result
- * @helpurl http://www.formulabot.com.com/features/sentiment-analysis
+ * @helpurl http://www.formulabot.com/features/sentiment-analysis
  */
 async function SENTIMENT(cell_to_analyze_sentiment, options) {
   // check if user is active
   const activeState = localStorage.getItem("token");
   if (!activeState) {
-    return "Please log in.";
+    return LOGIN_MESSAGE;
   }
 
   // call API
@@ -107,6 +130,7 @@ async function SENTIMENT(cell_to_analyze_sentiment, options) {
   }
 }
 
+
 /**
  * =FORMULABOT.INFO(cell_to_get_info, info_request)
  * Ex: =FORMULABOT.INFO(F1,"tallest building")
@@ -114,13 +138,13 @@ async function SENTIMENT(cell_to_analyze_sentiment, options) {
  * @param {string} cell_to_get_info Input String
  * @param {string[][][]} info_request Multiple ranges of values.
  * @returns {string} The Formulabot result
- * @helpurl http://www.formulabot.com.com/features/retrieve-information
+ * @helpurl http://www.formulabot.com/features/retrieve-information
  */
 async function INFO(cell_to_get_info, info_request) {
   // check if user is active
   const activeState = localStorage.getItem("token");
   if (!activeState) {
-    return "Please log in.";
+    return LOGIN_MESSAGE;
   }
 
   // call API
@@ -145,13 +169,13 @@ async function INFO(cell_to_get_info, info_request) {
  * @customfunction
  * @param {string[][][]} input_any_info Multiple ranges of values.
  * @returns {string} The Formulabot result
- * @helpurl http://www.formulabot.com.com/features/freeform
+ * @helpurl http://www.formulabot.com/features/freeform
  */
 async function FREEFORM(input_any_info) {
   // check if user is active
   const activeState = localStorage.getItem("token");
   if (!activeState) {
-    return "Please log in.";
+    return LOGIN_MESSAGE;
   }
 
   // call API
@@ -177,13 +201,13 @@ async function FREEFORM(input_any_info) {
  * @param {string[][]} input_examples Multiple ranges of values.
  * @param {string[][]} output_examples Multiple ranges of values.
  * @returns {string} The Formulabot result
- * @helpurl http://www.formulabot.com.com/features/inference
+ * @helpurl http://www.formulabot.com/features/inference
  */
 async function INFER(input_examples, output_examples, input_to_predict) {
   // check if user is active
   const activeState = localStorage.getItem("token");
   if (!activeState) {
-    return "Please log in.";
+    return LOGIN_MESSAGE;
   }
 
   if (input_examples.length != output_examples.length) {
@@ -216,30 +240,14 @@ async function INFER(input_examples, output_examples, input_to_predict) {
   }
 }
 
-
-
-async function callAPI(endpoint, payload) {
-  const BASE_URL = "https://formulabot.com/api/1.1/wf/";
-  var Token = localStorage.getItem("token");
-  console.log(Token);
-  try {
-    const url = BASE_URL + endpoint;
-    const options = {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${Token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload), // Use "body" instead of "payload" for the request body
-    };
-    console.log("CALL API OPTIONS", url, options);
-    var response = await fetch(url, options);
-    console.log(response);
-    var resp = await response.json();
-    console.log("CALL API RESP", resp);
-    var result = resp?.response?.output ?? "No Result Found";
-    return result;
-  } catch (e) {
-    return "No Result Found " + e;
+// Register the JSONP wrapper functions
+/*Office.onReady((info) => {
+  if (info.host === Office.HostType.Excel) {
+    Office.CustomFunctions.associate("CLASSIFY", CLASSIFY);
+    Office.CustomFunctions.associate("EXTRACT", EXTRACT);
+    Office.CustomFunctions.associate("SENTIMENT", SENTIMENT);
+    Office.CustomFunctions.associate("INFO", INFO);
+    Office.CustomFunctions.associate("FREEFORM", FREEFORM);
+    Office.CustomFunctions.associate("INFER", INFER);
   }
-}
+});*/

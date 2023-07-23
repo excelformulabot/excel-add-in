@@ -149,6 +149,8 @@
           <h5 class="m-0 w-100 text-green" id="header-label">I want to...</h5>
         </div>
         <div class="row h-100">
+          
+          <!-- BEGIN GENERATE SECTION -->
           <div class="btn-section-content d-none" id="generate-formula-section">
             <div class="container">
               <div class="row">
@@ -202,6 +204,9 @@
               </div>
             </div>
           </div>
+          <!-- END GENERATE SECTION -->
+
+          <!-- BEGIN EXPLAIN SECTION -->
           <div class="btn-section-content d-none" id="explain-formula-section">
             <div class="container">
               <div class="row">
@@ -253,6 +258,9 @@
               </div>
             </div>
           </div>
+          <!-- EXPLAIN EXPLAIN SECTION -->
+
+          <!-- BEGIN CLASSIFY SECTION -->
           <div class="btn-section-content d-none" id="classify-section">
             <div class="container">
               <div class="row">
@@ -354,8 +362,33 @@
                   >
                 </div>
               </div>
+              <!-- PASTE VALUES -->
+              <div id="paste-widget">
+                <div class="row py-1">
+                    <div class="col">
+                        <button type="button" class="btn btn-home-paste btn-lg rounded-pill w-100" id="btnPasteValues">
+                          <div class="fw-bolder section-label">Paste as static values</div>
+                        </button>
+                    </div>
+                </div>
+                <div class="row py-1 mt-2">
+                    <div class="section-sublabel">
+                      <div class="row gx-0 align-items-center">
+                        <div class="col-1 text-end">
+                          <i class="pe-3 fas fa-circle-info"></i>
+                        </div>
+                        <div class="col-11">
+                          This prevents new results from being pasted in your sheet when the page is refreshed.
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
             </div>
           </div>
+          <!-- END CLASSIFY SECTION -->
+
+          <!-- BEGIN EXTRACT SECTION -->
           <div class="btn-section-content d-none" id="extract-section">
             <div class="container">
               <div class="row">
@@ -405,8 +438,33 @@
                   >
                 </div>
               </div>
+              <!-- PASTE VALUES -->
+              <div id="paste-widget">
+                <div class="row py-1">
+                    <div class="col">
+                        <button type="button" class="btn btn-home-paste btn-lg rounded-pill w-100" id="btnPasteValues">
+                          <div class="fw-bolder section-label">Paste as static values</div>
+                        </button>
+                    </div>
+                </div>
+                <div class="row py-1 mt-2">
+                    <div class="section-sublabel">
+                      <div class="row gx-0 align-items-center">
+                        <div class="col-1 text-end">
+                          <i class="pe-3 fas fa-circle-info"></i>
+                        </div>
+                        <div class="col-11">
+                          This prevents new results from being pasted in your sheet when the page is refreshed.
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
             </div>
           </div>
+          <!-- END EXTRACT SECTION -->
+
+          <!-- BEGIN SENTIMENT SECTION -->
           <div class="btn-section-content d-none" id="analyze-sentiment-section">
             <div class="container">
               <div class="row">
@@ -492,8 +550,33 @@
                   >
                 </div>
               </div>
+              <!-- PASTE VALUES -->
+              <div id="paste-widget">
+                <div class="row py-1">
+                    <div class="col">
+                        <button type="button" class="btn btn-home-paste btn-lg rounded-pill w-100" id="btnPasteValues">
+                          <div class="fw-bolder section-label">Paste as static values</div>
+                        </button>
+                    </div>
+                </div>
+                <div class="row py-1 mt-2">
+                    <div class="section-sublabel">
+                      <div class="row gx-0 align-items-center">
+                        <div class="col-1 text-end">
+                          <i class="pe-3 fas fa-circle-info"></i>
+                        </div>
+                        <div class="col-11">
+                          This prevents new results from being pasted in your sheet when the page is refreshed.
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
             </div>
           </div>
+          <!-- END SENTIMENT SECTION -->
+
+          <!-- BEGIN RETRIEVE SECTION -->
           <div class="btn-section-content d-none" id="retrieve-info-section">
             <div class="container">
               <div class="row">
@@ -543,8 +626,33 @@
                   >
                 </div>
               </div>
+              <!-- PASTE VALUES -->
+              <div id="paste-widget">
+                <div class="row py-1">
+                    <div class="col">
+                        <button type="button" class="btn btn-home-paste btn-lg rounded-pill w-100" id="btnPasteValues">
+                          <div class="fw-bolder section-label">Paste as static values</div>
+                        </button>
+                    </div>
+                </div>
+                <div class="row py-1 mt-2">
+                    <div class="section-sublabel">
+                      <div class="row gx-0 align-items-center">
+                        <div class="col-1 text-end">
+                          <i class="pe-3 fas fa-circle-info"></i>
+                        </div>
+                        <div class="col-11">
+                          This prevents new results from being pasted in your sheet when the page is refreshed.
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
             </div>
           </div>
+          <!-- END RETRIEVE SECTION -->
+
+          <!-- BEGIN FREEFORM SECTION -->
           <div class="btn-section-content d-none" id="freeform-section">
             <div class="container">
               <div class="row">
@@ -578,8 +686,33 @@
                   <div>=FORMULABOT.FREEFORM( <span class="text-green">“Write me an article about SEO”</span> )</div>
                 </div>
               </div>
+              <!-- PASTE VALUES -->
+              <div id="paste-widget">
+                <div class="row py-1">
+                    <div class="col">
+                        <button type="button" class="btn btn-home-paste btn-lg rounded-pill w-100" id="btnPasteValues">
+                          <div class="fw-bolder section-label">Paste as static values</div>
+                        </button>
+                    </div>
+                </div>
+                <div class="row py-1 mt-2">
+                    <div class="section-sublabel">
+                      <div class="row gx-0 align-items-center">
+                        <div class="col-1 text-end">
+                          <i class="pe-3 fas fa-circle-info"></i>
+                        </div>
+                        <div class="col-11">
+                          This prevents new results from being pasted in your sheet when the page is refreshed.
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
             </div>
           </div>
+          <!-- END FREEFORM SECTION -->
+
+          <!-- BEGIN INFER SECTION -->
           <div class="btn-section-content d-none" id="infer-section">
             <div class="container">
               <div class="row">
@@ -607,8 +740,32 @@
                   />
                 </div>
               </div>
+              <!-- PASTE VALUES -->
+              <div id="paste-widget">
+                <div class="row py-1">
+                    <div class="col">
+                        <button type="button" class="btn btn-home-paste btn-lg rounded-pill w-100" id="btnPasteValues">
+                          <div class="fw-bolder section-label">Paste as static values</div>
+                        </button>
+                    </div>
+                </div>
+                <div class="row py-1 mt-2">
+                    <div class="section-sublabel">
+                      <div class="row gx-0 align-items-center">
+                        <div class="col-1 text-end">
+                          <i class="pe-3 fas fa-circle-info"></i>
+                        </div>
+                        <div class="col-11">
+                          This prevents new results from being pasted in your sheet when the page is refreshed.
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              </div>
             </div>
           </div>
+          <!-- END INFER SECTION -->
+
         </div>
       </div>
       <div class="container" id="home-section">

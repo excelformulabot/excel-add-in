@@ -994,9 +994,9 @@
           var o = await fetch(i, l);
           console.log(o);
           var a = await o.json();
-          return console.log("CALL API RESP", a), a?.response?.output ?? "No Result Found";
+          return console.log("CALL API RESP", a), a?.response?.output ?? "Request failed, try again. If issue persists, log out and try again or contact hello@formulabot.com.";
         } catch (t) {
-          return "No Result Found " + t;
+          return "Request failed, try again. If issue persists, log out and try again or contact hello@formulabot.com. " + t;
         }
       }
       Office.onReady(async (t) => {

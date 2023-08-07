@@ -38,7 +38,7 @@ async function CLASSIFY(cell_to_classify_type, cell_to_classify, cell_to_classif
     const result = callAPI("classify", payload);
     return result;
   } catch (e) {
-    return "No result found";
+    return "Request failed, try again. If issue persists, log out and try again or contact hello@formulabot.com.";
   }*/
 }
 
@@ -71,7 +71,7 @@ async function EXTRACT(cell_to_extract_info, info_to_extract) {
     return result;
     //return JSON.stringify(payload);
   } catch (e) {
-    return "No result found";
+    return "Request failed, try again. If issue persists, log out and try again or contact hello@formulabot.com.";
   }
 }
 
@@ -103,7 +103,7 @@ async function SENTIMENT(cell_to_analyze_sentiment, options) {
     const result = await callAPI("sentiment", payload);
     return result;
   } catch (e) {
-    return "No result found";
+    return "Request failed, try again. If issue persists, log out and try again or contact hello@formulabot.com.";
   }
 }
 
@@ -135,7 +135,7 @@ async function INFO(cell_to_get_info, info_request) {
     const result = await callAPI("info", payload);
     return result;
   } catch (e) {
-    return "No result found";
+    return "Request failed, try again. If issue persists, log out and try again or contact hello@formulabot.com.";
   }
 }
 
@@ -165,7 +165,7 @@ async function FREEFORM(input_any_info) {
     const result = await callAPI("freeform", payload);
     return result;
   } catch (e) {
-    return "No result found";
+    return "Request failed, try again. If issue persists, log out and try again or contact hello@formulabot.com.";
   }
 }
 
@@ -212,7 +212,7 @@ async function INFER(input_examples, output_examples, input_to_predict) {
     const result = await callAPI("infer", payload);
     return result;
   } catch (e) {
-    return "No result found";
+    return "Request failed, try again. If issue persists, log out and try again or contact hello@formulabot.com.";
   }
 }
 
@@ -237,9 +237,9 @@ async function callAPI(endpoint, payload) {
     console.log(response);
     var resp = await response.json();
     console.log("CALL API RESP", resp);
-    var result = resp?.response?.output ?? "No Result Found";
+    var result = resp?.response?.output ?? "Request failed, try again. If issue persists, log out and try again or contact hello@formulabot.com.";
     return result;
   } catch (e) {
-    return "No Result Found " + e;
+    return "Request failed, try again. If issue persists, log out and try again or contact hello@formulabot.com. " + e;
   }
 }

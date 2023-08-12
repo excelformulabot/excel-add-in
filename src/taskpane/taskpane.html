@@ -1185,14 +1185,14 @@
                         $("#loginScr").show(),
                         $("#mainScr").hide(),
                         $("#loadScr").hide(),
-                        updateBtn("#login", "Inactive Subscription", "Login")))
+                        updateBtn("#login", "Invalid Email/Password", "Login")))
                   : updateBtn("#login", res.message, "Login"),
                 "INVALID_LOGIN_CREDENTIALS" === o.reason
                   ? void updateBtn("#login", "Invalid Email/Password", "Login")
                   : o?.response?.output ?? "No Result Found"
               );
             } catch (t) {
-              updateBtn("#login", "Inactive Subscription", "Login")
+              updateBtn("#login", "Invalid Email/Password", "Login")
               return "No Result Found " + t;
             }
           } else updateBtn("#login", "Fill Input Field!", "Login");

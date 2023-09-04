@@ -10,6 +10,7 @@ Office.onReady(() => {
   //document.getElementById("sideload-msg").style.display = "none";
   //document.getElementById("app-body").style.display = "flex";
   //document.getElementById("run").onclick = run;
+  document.querySelector("#requests_remaining").innerText = resp.response.requests_remaining;
 });
 
 /*
@@ -42,6 +43,8 @@ function replaceFormulasWithValues() {
       var sheet = context.workbook.worksheets.getActiveWorksheet();
       var range = sheet.getUsedRange();
       range.load(["formulas", "values"]);
+
+      document.querySelector("#requests_remaining").innerText = resp.response.requests_remaining;
 
       return context.sync().then(function () {
         var formulas = range.formulas;
@@ -110,6 +113,8 @@ async function loginFunc() {
         var resp = JSON.parse(result);
         if (resp.status == "success") {
           localStorage.setItem("token", resp.response.token);
+          localStorage.setItem("requests_remaining", resp.response.requests_remaining);
+          document.querySelector("#requests_remaining").innerText = resp.response.requests_remaining;
           loginHandle(resp);
           resolve(resp);
         } else if (resp.reason === "INVALID_LOGIN_CREDENTIALS") {

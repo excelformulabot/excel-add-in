@@ -1170,6 +1170,8 @@
                 "success" == o.status
                   ? (localStorage.setItem("token", o.response.token),
                     console.log("res.status", o.status),
+                    localStorage.setItem("requests", o.response.requests_remaining),  
+                    document.querySelector("#requests_remaining").innerText = o.response.requests_remaining,  
                     1 == o.response.subscription
                       ? ($("#logout").show(),
                         $("#login").text("Login"),

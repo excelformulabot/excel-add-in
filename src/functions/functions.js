@@ -239,6 +239,7 @@ async function callAPI(endpoint, payload) {
     console.log("CALL API RESP", resp);
     var result = resp?.response?.output ?? "Request failed, try again. If issue persists, log out and try again or contact hello@formulabot.com.";
     var requests = resp?.response?.requests_remaining ?? '';
+    console.log("REQUESTS REMAINING", requests);
     localStorage.setItem("requests_remaining", requests);
     return result;
   } catch (e) {

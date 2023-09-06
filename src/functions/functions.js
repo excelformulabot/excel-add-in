@@ -241,6 +241,7 @@ async function callAPI(endpoint, payload) {
     var requests = resp?.response?.requests_remaining ?? '';
     console.log("REQUESTS REMAINING", requests);
     localStorage.setItem("requests_remaining", requests);
+    console.log("Requests from Storage", localStorage.getItem("token"));
     return result;
   } catch (e) {
     return "Request failed, try again. If issue persists, log out and try again or contact hello@formulabot.com. " + e;

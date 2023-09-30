@@ -4,8 +4,8 @@
   <Version>6.0.0.0</Version>
   <ProviderName>Formula Bot (Datasetmatch LLC)</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="Formula Bot | AI Formula Generation"/>
-  <Description DefaultValue="Formula Bot | AI Formula Generation"/>
+  <DisplayName DefaultValue="Formula Bot | AI Data Prep"/>
+  <Description DefaultValue="Formula Bot | AI Data Prep"/>
   <IconUrl DefaultValue="https://excelformulabot.github.io/excel-add-in/32.png"/>
   <HighResolutionIconUrl DefaultValue="https://excelformulabot.github.io/excel-add-in/64.png"/>
   <SupportUrl DefaultValue="https://formulabot.com"/>

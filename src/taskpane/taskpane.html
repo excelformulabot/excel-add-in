@@ -1191,11 +1191,11 @@
                   : updateBtn("#login", res.message, "Login"),
                 "INVALID_LOGIN_CREDENTIALS" === o.reason
                   ? void updateBtn("#login", "Invalid Email/Password", "Login")
-                  : o?.response?.output ?? "No Result Found"
+                  : o?.response?.output ?? "Please log out and log back in. If issue persists, please contact hello@formulabot.com."
               );
             } catch (t) {
               updateBtn("#login", "Invalid Email/Password", "Login")
-              return "No Result Found " + t;
+              return "Please log out and log back in. If issue persists, please contact hello@formulabot.com." + t;
             }
           } else updateBtn("#login", "Fill Input Field!", "Login");
         }),

@@ -981,7 +981,7 @@
         var n = localStorage.getItem("token");
         console.log(n);
         try {
-          const i = "https://formulabot.com/api/1.1/wf/" + t,
+          const i = "https://app.formulabot.com/api/1.1/wf/" + t,
             l = {
               method: "POST",
               headers: {
@@ -1148,7 +1148,7 @@
           if (-1 != t.indexOf("@") && "" != e) {
             $("#login").text("Logging In...");
             try {
-              const a = "https://formulabot.com/api/1.1/wf/login/",
+              const a = "https://app.formulabot.com/api/1.1/wf/login/",
                 i = {
                   email: t,
                   password: e,

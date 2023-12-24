@@ -104,7 +104,7 @@ async function loginFunc() {
       redirect: "follow",
     };
 
-    fetch("https://formulabot.com/api/1.1/wf/login/", requestOptions)
+    fetch("https://app.formulabot.com/api/1.1/wf/login/", requestOptions)
       .then((response) => response.text())
       .then((result) => {
         var resp = JSON.parse(result);

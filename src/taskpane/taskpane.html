@@ -923,11 +923,12 @@
           console.error(t);
         }
       }
+      const BASE_URL = "https://analytics.formulabot.com/api/addon/";
       async function callAPI(t, e) {
         var n = localStorage.getItem("token");
         console.log(n);
         try {
-          const i = "https://app.formulabot.com/api/1.1/wf/" + t,
+          const i = BASE_URL + t,
             l = {
               method: "POST",
               headers: {
@@ -940,7 +941,12 @@
           var o = await fetch(i, l);
           console.log(o);
           var a = await o.json();
-          return console.log("CALL API RESP", a), a?.response?.output ?? "Request failed, try again. If issue persists, log out and try again or contact hello@formulabot.com.";
+          console.log("CALL API RESP", a);
+          if (a?.response?.requests_remaining !== undefined) {
+            localStorage.setItem("requests", a.response.requests_remaining);
+            document.querySelector("#requests_remaining").innerText = a.response.requests_remaining;
+          }
+          return a?.response?.output ?? "Request failed, try again. If issue persists, log out and try again or contact hello@formulabot.com.";
         } catch (t) {
           return "Request failed, try again. If issue persists, log out and try again or contact hello@formulabot.com. " + t;
         }
@@ -1094,7 +1100,7 @@
           if (-1 != t.indexOf("@") && "" != e) {
             $("#login").text("Logging In...");
             try {
-              const a = "https://app.formulabot.com/api/1.1/wf/login/",
+              const a = BASE_URL + "login",
                 i = {
                   email: t,
                   password: e,
@@ -1111,43 +1117,47 @@
               var n = await fetch(a, l);
               console.log(n);
               var o = await n.json();
-              return (
-                console.log("CALL LOGIN RESP", o),
-                "success" == o.status
-                  ? (localStorage.setItem("token", o.response.token),
-                    console.log("res.status", o.status),
-                    localStorage.setItem("requests", o.response.requests_remaining),  
-                    document.querySelector("#requests_remaining").innerText = o.response.requests_remaining,  
-                    1 == o.response.subscription
-                      ? ($("#logout").show(),
-                        $("#login").text("Login"),
-                        $("#email").val(""),
-                        $("#password").val(""),
-                        $("#loginScr").hide(),
-                        $("#mainScr").show(),
-                        $("#home-section").show(),
-                        $("#header-label").show(),
-                        $("#loadScr").hide())
-                      : ($("#header-label").hide(),
-                        $("#logout").hide(),
-                        $("#loginScr").show(),
-                        $("#mainScr").hide(),
-                        $("#loadScr").hide(),
-                        updateBtn("#login", "Invalid Email/Password", "Login")))
-                  : updateBtn("#login", res.message, "Login"),
-                "INVALID_LOGIN_CREDENTIALS" === o.reason
-                  ? void updateBtn("#login", "Invalid Email/Password", "Login")
-                  : o?.response?.output ?? "Please log out and log back in. If issue persists, please contact hello@formulabot.com."
-              );
+              console.log("CALL LOGIN RESP", o);
+              if ("success" == o.status) {
+                localStorage.setItem("token", o.response.token);
+                if (o.response.refresh_token) {
+                  localStorage.setItem("refresh_token", o.response.refresh_token);
+                }
+                console.log("res.status", o.status);
+                localStorage.setItem("requests", o.response.requests_remaining);
+                document.querySelector("#requests_remaining").innerText = o.response.requests_remaining;
+                if (o.response.subscription) {
+                  $("#logout").show();
+                  $("#login").text("Login");
+                  $("#email").val("");
+                  $("#password").val("");
+                  $("#loginScr").hide();
+                  $("#mainScr").show();
+                  $("#home-section").show();
+                  $("#header-label").show();
+                  $("#loadScr").hide();
+                } else {
+                  $("#header-label").hide();
+                  $("#logout").hide();
+                  $("#loginScr").show();
+                  $("#mainScr").hide();
+                  $("#loadScr").hide();
+                  updateBtn("#login", "Inactive Subscription", "Login");
+                }
+              } else {
+                updateBtn("#login", o.message || "Login failed", "Login");
+              }
             } catch (t) {
-              updateBtn("#login", "Invalid Email/Password", "Login")
-              return "Please log out and log back in. If issue persists, please contact hello@formulabot.com." + t;
+              updateBtn("#login", "Invalid Email/Password", "Login");
+              console.error("Login error:", t);
             }
           } else updateBtn("#login", "Fill Input Field!", "Login");
         }),
         $(document).on("click", "#logout", async function () {
           (console.log('logout hidden'),
             localStorage.removeItem("token"),
+            localStorage.removeItem("refresh_token"),
+            localStorage.removeItem("requests_remaining"),
             $("#logout").hide(),
             $("#loginScr").show(),
             $("#mainScr").hide(),

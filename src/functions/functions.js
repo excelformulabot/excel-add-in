@@ -1,6 +1,6 @@
 /* global console */
 
-const BASE_URL = "https://formulabot.com/api/1.1/wf/";
+const BASE_URL = "https://analytics.formulabot.com/api/addon/";
 
 /**
  * =FORMULABOT.CLASSIFY(cell_to_classify_type, cell_to_classify, cell_to_classify_based_on, option1, option2,...)
@@ -219,7 +219,7 @@ async function INFER(input_examples, output_examples, input_to_predict) {
 
 
 async function callAPI(endpoint, payload) {
-  const BASE_URL = "https://formulabot.com/api/1.1/wf/";
+  const BASE_URL = "https://analytics.formulabot.com/api/addon/";
   var Token = localStorage.getItem("token");
   console.log(Token);
   try {
